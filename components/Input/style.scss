@@ -1,0 +1,76 @@
+@import '../vars';
+
+$field-height: 54px;
+$field-padding: 15px;
+
+.container{
+  position: relative;
+
+  &.disabled{
+    opacity: 0.3;
+  }
+
+}
+
+.field{
+
+  height: $field-height;
+  padding: $field-padding;
+  width: 100%;
+  line-height: normal;
+  outline: none;
+  border: 1px solid $color-gray;
+  -webkit-appearance: none;
+  border-radius: 0;
+
+  &:focus, &.filled {
+
+    padding-top: $field-padding + 5px;
+    padding-bottom: 0;
+
+    + .label{
+      font-size: 0.750em;
+      height: 15px;
+      top: 9px;
+      transition: all 0.2s ease;
+    }
+  }
+
+  &:focus{
+    box-shadow: 0 0 10px $color-primary;
+    border-color: $color-primary;
+  }
+
+  &:hover{
+    border-color: $color-primary;
+  }
+
+  &[disabled]:hover{
+    border-color: $color-gray;
+  }
+
+  &.error{
+    border-color: $color-feedback-ko;
+  }
+
+}
+
+.label{
+
+  pointer-events: none;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 1px;
+  width: 100%;
+  color: $color-gray;
+  height: $field-height;
+  padding-left: $field-padding;
+  z-index: 3;
+  transition: all 0.2s ease;
+
+  &.error{
+    color: $color-feedback-ko;
+  }
+
+}

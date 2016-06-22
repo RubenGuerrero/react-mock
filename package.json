@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "classnames": "^2.2.5",
     "normalize.css": "^4.1.1"
   },
   "devDependencies": {

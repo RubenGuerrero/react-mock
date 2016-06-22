@@ -26,7 +26,23 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'stage-0', 'react'],
+          "env": {
+            "development": {
+              "plugins": [
+                ["react-transform", {
+                  "transforms": [{
+                    "transform": "react-transform-hmr",
+                    "imports": ["react"],
+                    "locals": ["module"]
+                  }, {
+                    "transform": "react-transform-catch-errors",
+                    "imports": ["react", "redbox-react"]
+                  }]
+                }]
+              ]
+            }
+          }
         },
         exclude: [/(node_modules)/, /react-css-themr/]
       }, {
